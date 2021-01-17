@@ -9,10 +9,10 @@ namespace AcmeVendingMachines
         static void Main(string[] args)
         {
             // coin denominations – British Dollar
-            var coinDenominations = new int[6] { 1, 2, 5, 10, 20, 50 };
+            //var coinDenominations = new int[6] { 1, 2, 5, 10, 20, 50 };
 
             // coin denominations – US Dollar
-            //var coinDenominations = new int[4] { 1, 5, 10, 25 };
+            var coinDenominations = new int[4] { 1, 5, 10, 25 };
 
             var machine = new VendingMachine(coinDenominations);
 
@@ -26,6 +26,11 @@ namespace AcmeVendingMachines
             var change = machine.CalculateChange(purchaseAmount, tenderAmount);
 
             Console.WriteLine($"Your change is : {change.Sum()}");  
+            
+            foreach(var coin in change)
+            {
+                Console.WriteLine($"[{coin}]");
+            }
             Console.ReadLine();
         }
     }
